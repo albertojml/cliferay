@@ -40,6 +40,12 @@ commands:
   alias: sf
   help: Run SF globally
   group: Module
+- name: deploy
+  alias: sf
+  help: Run SF globally
+  group: Module
+  # portal-test:  ant deploy install-portal-snapshot && cp ../../bundles/osgi/test/com.liferay.portal.test.jar ../../bundles/osgi/modules
+
 
 - name: run
   help: Start the server
@@ -47,9 +53,16 @@ commands:
 - name: kill
   help: Kill the server
   group: Server
+- name: nuke
+  help: Deletes all persisted data
+  group: Server
 
 - name: morning
   help: Sync, build, ij and run
+  flags:
+  - long: --nuke
+    short: -n
+    help: Also nukes the server
 - name: folder
   help: Print the source folder
 - name: completions
